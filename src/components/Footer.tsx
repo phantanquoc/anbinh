@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import logoWhitePlaceholder from '../assets/logo-white-placeholder.svg';
 
 interface FooterProps {
   language: 'vi' | 'en';
@@ -38,18 +39,18 @@ const Footer = ({ language }: FooterProps) => {
         <div className="flex flex-col md:flex-row justify-between items-center md:items-start">
           <div className="mb-6 md:mb-0">
             <Link to="/" className="flex items-center mb-4">
-              <img 
-                src="/logo-white.png" 
-                alt="FreshFruits Logo" 
+              <img
+                src="/logo-white.png"
+                alt="FreshFruits Logo"
                 className="h-16 w-auto"
                 onError={(e) => {
                   const target = e.target as HTMLImageElement;
-                  target.src = 'https://via.placeholder.com/160x80?text=FreshFruits&bg=e63946&fg=ffffff';
+                  target.src = logoWhitePlaceholder;
                 }}
               />
             </Link>
           </div>
-          
+
           <div className="text-center md:text-left mb-6 md:mb-0">
             <h3 className="font-bold text-lg mb-2">{translations.companyName[language]}</h3>
             <p className="mb-1">{translations.address[language]}</p>
@@ -57,7 +58,7 @@ const Footer = ({ language }: FooterProps) => {
             <p className="mb-1">{translations.email[language]}: sales@freshfruits.com</p>
             <p className="mb-1">{translations.website[language]}: www.freshfruits.com</p>
           </div>
-          
+
           <div className="flex space-x-4">
             <a href="#" className="bg-white rounded-full p-2 text-red-600 hover:text-red-700">
               <span className="sr-only">Facebook</span>
@@ -79,7 +80,7 @@ const Footer = ({ language }: FooterProps) => {
             </a>
           </div>
         </div>
-        
+
         <div className="border-t border-red-500 mt-8 pt-4 text-center">
           <p>{translations.copyright[language]}</p>
         </div>

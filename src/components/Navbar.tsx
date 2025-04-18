@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
+import logoPlaceholder from '../assets/logo-placeholder.svg';
 
 interface NavbarProps {
   language: 'vi' | 'en';
@@ -15,30 +16,30 @@ const Navbar = ({ language, toggleLanguage }: NavbarProps) => {
   };
 
   const navItems = [
-    { 
-      en: 'HOME', 
-      vi: 'TRANG CHỦ', 
-      path: '/' 
+    {
+      en: 'HOME',
+      vi: 'TRANG CHỦ',
+      path: '/'
     },
-    { 
-      en: 'ABOUT US', 
-      vi: 'GIỚI THIỆU', 
-      path: '/about' 
+    {
+      en: 'ABOUT US',
+      vi: 'GIỚI THIỆU',
+      path: '/about'
     },
-    { 
-      en: 'PRODUCTS', 
-      vi: 'SẢN PHẨM', 
-      path: '/products' 
+    {
+      en: 'PRODUCTS',
+      vi: 'SẢN PHẨM',
+      path: '/products'
     },
-    { 
-      en: 'COMMUNICATION', 
-      vi: 'TRUYỀN THÔNG', 
-      path: '/communication' 
+    {
+      en: 'COMMUNICATION',
+      vi: 'TRUYỀN THÔNG',
+      path: '/communication'
     },
-    { 
-      en: 'CONTACT US', 
-      vi: 'LIÊN HỆ', 
-      path: '/contact' 
+    {
+      en: 'CONTACT US',
+      vi: 'LIÊN HỆ',
+      path: '/contact'
     }
   ];
 
@@ -49,7 +50,7 @@ const Navbar = ({ language, toggleLanguage }: NavbarProps) => {
         <div className="container mx-auto flex justify-between items-center">
           <div>FreshFruits Group Ecosystem</div>
           <div className="flex items-center space-x-4">
-            <button 
+            <button
               onClick={toggleLanguage}
               className="text-white hover:text-gray-200"
             >
@@ -85,13 +86,13 @@ const Navbar = ({ language, toggleLanguage }: NavbarProps) => {
           <div className="flex justify-between items-center py-4">
             <div className="flex items-center">
               <Link to="/" className="flex items-center">
-                <img 
-                  src="/logo.png" 
-                  alt="FreshFruits Logo" 
+                <img
+                  src="/logo.png"
+                  alt="FreshFruits Logo"
                   className="h-12 w-auto"
                   onError={(e) => {
                     const target = e.target as HTMLImageElement;
-                    target.src = 'https://via.placeholder.com/120x50?text=FreshFruits';
+                    target.src = logoPlaceholder;
                   }}
                 />
               </Link>
@@ -100,8 +101,8 @@ const Navbar = ({ language, toggleLanguage }: NavbarProps) => {
             {/* Desktop menu */}
             <div className="hidden md:flex items-center space-x-8">
               {navItems.map((item, index) => (
-                <Link 
-                  key={index} 
+                <Link
+                  key={index}
                   to={item.path}
                   className="text-gray-800 hover:text-red-600 font-medium"
                 >
@@ -130,8 +131,8 @@ const Navbar = ({ language, toggleLanguage }: NavbarProps) => {
             <div className="md:hidden py-4 border-t">
               <div className="flex flex-col space-y-4">
                 {navItems.map((item, index) => (
-                  <Link 
-                    key={index} 
+                  <Link
+                    key={index}
                     to={item.path}
                     className="text-gray-800 hover:text-red-600 font-medium px-4 py-2"
                     onClick={() => setIsOpen(false)}
